@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Calculator Hub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Intro Animation -->
+    <div id="intro-screen">
+        <img src="master1.png" alt="Master Logo" id="intro-logo">
+    </div>
+
+    <!-- Logo in corner -->
+    <div id="corner-logo">
+        <img src="master1.png" alt="Logo">
+    </div>
+
+    <!-- Main Navigation Screen -->
+    <div id="main-screen" class="screen active">
+        <div class="button-container">
+            <button class="nav-button" data-screen="simple-calc">Simple Calculator</button>
+            <button class="nav-button" data-screen="scientific-calc">Scientific Calculator</button>
+            <button class="nav-button" data-screen="conversion">Conversions</button>
+            <button class="nav-button" data-screen="bmi">Body Mass Index</button>
+            <button class="nav-button" data-screen="height-calc">Calculate your height using your size of foot</button>
+        </div>
+    </div>
+
+    <!-- Simple Calculator Screen -->
+    <div id="simple-calc" class="screen">
+        <button class="back-button">← Back</button>
+        <div class="calculator-container">
+            <div class="calc-display">
+                <div class="live-result" id="simple-live"></div>
+                <input type="text" id="simple-input" class="calc-input" readonly>
+            </div>
+            <div class="error-display" id="simple-error"></div>
+            <div class="calc-buttons">
+                <button class="calc-btn" data-value="7">7</button>
+                <button class="calc-btn" data-value="8">8</button>
+                <button class="calc-btn" data-value="9">9</button>
+                <button class="calc-btn operator" data-value="/">÷</button>
+                <button class="calc-btn" data-value="4">4</button>
+                <button class="calc-btn" data-value="5">5</button>
+                <button class="calc-btn" data-value="6">6</button>
+                <button class="calc-btn operator" data-value="*">×</button>
+                <button class="calc-btn" data-value="1">1</button>
+                <button class="calc-btn" data-value="2">2</button>
+                <button class="calc-btn" data-value="3">3</button>
+                <button class="calc-btn operator" data-value="-">−</button>
+                <button class="calc-btn" data-value="0">0</button>
+                <button class="calc-btn" data-value=".">.</button>
+                <button class="calc-btn operator" data-value="+">=</button>
+                <button class="calc-btn special" data-value="(">(</button>
+                <button class="calc-btn special" data-value=")">)</button>
+                <button class="calc-btn equals" id="simple-equals">=</button>
+                <button class="calc-btn clear" id="simple-clear">C</button>
+                <button class="calc-btn delete" id="simple-delete">⌫</button>
+            </div>
+            <button class="history-btn" id="simple-history-btn">History</button>
+            <div class="history-panel" id="simple-history"></div>
+        </div>
+    </div>
+
+    <!-- Scientific Calculator Screen -->
+    <div id="scientific-calc" class="screen">
+        <button class="back-button">← Back</button>
+        <div class="calculator-container">
+            <div class="calc-display">
+                <div class="live-result" id="sci-live"></div>
+                <input type="text" id="sci-input" class="calc-input" readonly>
+            </div>
+            <div class="error-display" id="sci-error"></div>
+            <div class="calc-buttons scientific">
+                <button class="calc-btn sci-func" data-value="sin">sin</button>
+                <button class="calc-btn sci-func" data-value="cos">cos</button>
+                <button class="calc-btn sci-func" data-value="tan">tan</button>
+                <button class="calc-btn sci-func" data-value="log">log</button>
+                <button class="calc-btn sci-func" data-value="ln">ln</button>
+                
+                <button class="calc-btn sci-func" data-value="sqrt">√</button>
+                <button class="calc-btn sci-func" data-value="pow">x²</button>
+                <button class="calc-btn sci-func" data-value="^">xʸ</button>
+                <button class="calc-btn sci-func" data-value="pi">π</button>
+                <button class="calc-btn sci-func" data-value="e">e</button>
+                
+                <button class="calc-btn" data-value="7">7</button>
+                <button class="calc-btn" data-value="8">8</button>
+                <button class="calc-btn" data-value="9">9</button>
+                <button class="calc-btn operator" data-value="/">÷</button>
+                <button class="calc-btn special" data-value="(">(</button>
+                
+                <button class="calc-btn" data-value="4">4</button>
+                <button class="calc-btn" data-value="5">5</button>
+                <button class="calc-btn" data-value="6">6</button>
+                <button class="calc-btn operator" data-value="*">×</button>
+                <button class="calc-btn special" data-value=")">)</button>
+                
+                <button class="calc-btn" data-value="1">1</button>
+                <button class="calc-btn" data-value="2">2</button>
+                <button class="calc-btn" data-value="3">3</button>
+                <button class="calc-btn operator" data-value="-">−</button>
+                <button class="calc-btn clear" id="sci-clear">C</button>
+                
+                <button class="calc-btn" data-value="0">0</button>
+                <button class="calc-btn" data-value=".">.</button>
+                <button class="calc-btn equals" id="sci-equals">=</button>
+                <button class="calc-btn operator" data-value="+">+</button>
+                <button class="calc-btn delete" id="sci-delete">⌫</button>
+            </div>
+            <button class="history-btn" id="sci-history-btn">History</button>
+            <div class="history-panel" id="sci-history"></div>
+        </div>
+    </div>
+
+    <!-- Conversion Screen -->
+    <div id="conversion" class="screen">
+        <button class="back-button">← Back</button>
+        <div class="conversion-container">
+            <h2>Unit Converter</h2>
+            <div class="conversion-selector">
+                <button class="conv-type-btn active" data-type="length">Length</button>
+                <button class="conv-type-btn" data-type="weight">Weight</button>
+                <button class="conv-type-btn" data-type="temperature">Temperature</button>
+                <button class="conv-type-btn" data-type="area">Area</button>
+                <button class="conv-type-btn" data-type="volume">Volume</button>
+                <button class="conv-type-btn" data-type="time">Time</button>
+            </div>
+            <div class="conversion-box">
+                <div class="input-group">
+                    <label>From:</label>
+                    <select id="from-unit" class="unit-select"></select>
+                    <input type="number" id="from-value" class="conv-input" placeholder="Enter value">
+                </div>
+                <div class="swap-btn" id="swap-units">⇄</div>
+                <div class="input-group">
+                    <label>To:</label>
+                    <select id="to-unit" class="unit-select"></select>
+                    <input type="text" id="to-value" class="conv-input" readonly placeholder="Result">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BMI Screen -->
+    <div id="bmi" class="screen">
+        <button class="back-button">← Back</button>
+        <div class="bmi-container">
+            <h2>Body Mass Index Calculator</h2>
+            <div class="bmi-inputs">
+                <div class="input-group">
+                    <label>Weight (kg):</label>
+                    <input type="number" id="bmi-weight" placeholder="Enter weight in kg">
+                </div>
+                <div class="input-group">
+                    <label>Height (cm):</label>
+                    <input type="number" id="bmi-height" placeholder="Enter height in cm">
+                </div>
+                <button class="calculate-btn" id="calc-bmi">Calculate BMI</button>
+            </div>
+            <div class="bmi-result" id="bmi-result">
+                <div class="bmi-value"></div>
+                <div class="bmi-category"></div>
+                <div class="bmi-description"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Height Calculator Screen -->
+    <div id="height-calc" class="screen">
+        <button class="back-button">← Back</button>
+        <div class="height-container">
+            <h2>Calculate Your Height Using Foot Size</h2>
+            <div class="height-inputs">
+                <div class="input-group">
+                    <label>Please enter your vertical measure of foot in cm:</label>
+                    <input type="number" id="foot-size" placeholder="Vertical size of foot in cm">
+                </div>
+                <button class="calculate-btn" id="calc-height">Calculate Height</button>
+            </div>
+            <div class="height-result" id="height-result"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+  </html>
